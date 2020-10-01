@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <%- include("./partials/head.ejs")  %>
+</head>
+<body>
+    <div class="container">
+        <%- include("./partials/nav.ejs")  %>
+        <h3>BLOG LIST</h3>
+
+        <% if(posts.length > 0) { %>
+            <% posts.forEach(post => { %>
+                <div class="card my-5 p-4">
+                    <a href="/blogs/<%= post._id %>" class="text-decoration-none">
+                        <h3 class="text-uppercase bg-light"><%= post.title %></h3>
+                        <h5><%= post.snippet %></h5>
+                        <p><%= post.body.substring(0,30) %>...</p>
+                    </a>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No POST Found</p>
+        <% } %>
+    </div>
+</body>
+</html>
+

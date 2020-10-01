@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE BLOG</title>
+    <%- include("./partials/head.ejs")  %>
+</head>
+<body>
+    <div class="container">
+        <%- include("./partials/nav.ejs")  %>
+        <h3><%= blog.title %></h3> 
+
+        <h6><%= blog.title %></h6> 
+
+        <p><%= blog.body %></p> 
+
+        <a href="" class="btn btn-danger" id="delete" data-doc="<%=  blog._id %>">Delete</a>
+    </div>
+
+    <script>
+        const a = document.querySelector("#delete");
+
+        a.addEventListener("click",(e) => {
+            const endPoint = `/blogs/${a.dataset.doc}`;
+            e.preventDefault()
+            fetch(endPoint, {
+                method: "DELETE"
+            }).then(() => {
+                window.location.replace("/")
+            })
+            .catch(err => console.log(err))
+        })
+
+    </script>
+</body>
+</html>

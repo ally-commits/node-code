@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE BLOG</title>
+    <%- include("./partials/head.ejs")  %>
+</head>
+<body>
+    <div class="container">
+        <%- include("./partials/nav.ejs")  %>
+        <h3>CREATE BLOG</h3>
+        <form action="/blogs" method="POST">
+
+            <label for="title">Blog title</label>
+            <input type="text" required name="title" class="form-control">
+            <br>
+            <label for="snipppet">Blog snipppet</label>
+            <input type="text" required name="snippet" class="form-control">
+            <br>
+            <label for="">Blog Body</label>
+            <textarea id="" cols="30" rows="10" name="body" class="form-control"></textarea>
+            
+            <input type="submit" value="submit" class="btn btn-primary">
+        </form>
+    </div>
+</body>
+</html>
